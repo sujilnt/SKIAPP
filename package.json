@@ -1,0 +1,22 @@
+{
+  "name": "src",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sujilnt/Redux-app.git"
+  },
+  "keywords": [
+    "skyday"
+  ],
+  "author": "sujil",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sujilnt/Redux-app/issues"
+  },
+  "homepage": "https://github.com/sujilnt/Redux-app#readme"
+}
