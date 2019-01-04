@@ -6,15 +6,20 @@ const state = [{
 	"date": "2016-12-14",
 	"powder": true,
 	"backcountry": false
-	}];
+	},{
+      			"resort": "Boreal",
+      			"date": "2016-12-19",
+      			"powder": true,
+      			"backcountry": true
+      		}];
 const action= {
-    type:C.ADD_DAY,
-    payload:{
-			"resort": "Boreal",
-			"date": "2016-12-16",
-			"powder": true,
-			"backcountry": true
-		}
+    type:C.REMOVE_DAY,
+    payload: {
+            "resort": "Boreal",
+            "date": "2016-12-19",
+            "powder": true,
+            "backcountry": true
+    }
 };
 const nextState = allskyDays(state,action);
 console.log(`
