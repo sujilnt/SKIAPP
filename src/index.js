@@ -27,4 +27,4 @@ console.log(`
   action: ${JSON.stringify(action)}
   new goal : ${nextState}
 
-  `)
+  `);
