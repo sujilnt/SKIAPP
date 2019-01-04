@@ -7,11 +7,11 @@ const state = [{
 	"powder": true,
 	"backcountry": false
 	},{
-      			"resort": "Boreal",
-      			"date": "2016-12-19",
-      			"powder": true,
-      			"backcountry": true
-      		}];
+      "resort": "Boreal",
+      "date": "2016-12-19",
+      "powder": true,
+      "backcountry": true
+      }];
 const action= {
     type:C.REMOVE_DAY,
     payload: {
@@ -22,6 +22,7 @@ const action= {
     }
 };
 const nextState = allskyDays(state,action);
+console.log("nextState",state,action);
 console.log(`
   intial goal: ${state}
   action: ${JSON.stringify(action)}

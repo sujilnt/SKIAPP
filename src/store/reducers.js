@@ -18,13 +18,12 @@ export const errors=(state=null,action)=>{
 	}
 };
 export const allskyDays=(state,action)=>{
-	console.log("called",state.filter(skiDay=>skiDay.date !== action.payload.date));
-	console.log("action",action.payload,state,action.payload.date);
-	switch(action.payload){
+	switch(action.type){
 		case C.ADD_DAY:
 			const hasDay=state.some(skiDay=>skiDay.date=== action.payload.date);
-			console.log("called");
-			return (hasDay) ? state : [...state,skiDay(null,action.payload)].sort((a,b)=>new Date(b.date)- new Date(a.date));
+			return (hasDay) ?
+				state :
+				[...state,skiDay(null,action.payload)].sort((a,b)=>new Date(b.date)- new Date(a.date));
 		case C.REMOVE_DAY:
 			state= [state.filter(skiDay=>skiDay.date !== action.payload.date)];
 			return state;
