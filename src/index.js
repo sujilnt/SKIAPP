@@ -1,31 +1,16 @@
 import C from "./constants.js";
-import {allskyDays} from "./store/reducers.js";
-
-const state = [{
-    "resort": "Kirkwood",
-	"date": "2016-12-14",
-	"powder": true,
-	"backcountry": false
-	},{
-      "resort": "Boreal",
-      "date": "2016-12-19",
-      "powder": true,
-      "backcountry": true
-      }];
-const action= {
-    type:C.REMOVE_DAY,
-    payload: {
-            "resort": "Boreal",
-            "date": "2016-12-19",
-            "powder": true,
-            "backcountry": true
-    }
-};
-const nextState = allskyDays(state,action);
-console.log("nextState",state,action);
+import appReducer from "./store/reducers.js";
+import initialState from "./initialState.json";
+let state = initialState;
 console.log(`
-  intial goal: ${state}
-  action: ${JSON.stringify(action)}
-  new goal : ${nextState}
+  initial State
+  goals: ${state.goal},
+  error: ${state.errors},
+  resotNames: ${JSON.stringify(state.resortNames)}
+  allSkiDays: ${JSON.stringify(state.allSkiDays)}
+`);
+state = appReducer(state, {
+	type: C.SET_GOAL,
+	payload: 2
+})
 
-  `);
