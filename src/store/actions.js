@@ -24,3 +24,33 @@ export const setGoal=(goal)=>{
 		payload:goal
     }
 };
+
+export const addError =(error)=>{
+	return{
+		type:C.ADD_ERROR,
+		payload:error
+	}
+};
+
+export const clearError=(error)=>{
+	return{
+		type: C.CLEAR_ERROR,
+		payload:error
+	}
+};
+export const changeSuggestions=(suggestions)=>{
+	return {
+		type: C.CHANGE_SUGGESTIONS,
+		payload:suggestions
+	}
+};
+export const clearSuggestions= (suggestions)=>{
+	return {
+		type: C.CLEAR_SUGGESTIONS,
+		payload:suggestions
+	}
+};
+
+export const randomGoals=()=>{
+
+};

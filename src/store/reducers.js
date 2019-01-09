@@ -15,7 +15,7 @@ export const errors=(state=[],action)=>{
 		case C.ADD_ERROR:
 			return [...state,action.payload];
 		case C.CLEAR_ERROR:
-			return [state.filter((row,index)=> index !== action.payload)];
+			return [...state.filter((row,index)=> index !== action.payload)];
 		default:
 			return state
 	}
@@ -28,8 +28,7 @@ export const allSkiDays=(state=[],action)=>{
 				state :
 				[...state,skiDay(null,action)].sort((a,b)=>new Date(b.date)- new Date(a.date));
 		case C.REMOVE_DAY:
-			state= [state.filter(skiDay=>skiDay.date !== action.payload.date)];
-			return state;
+			return [...state.filter(skiDay=>toString(skiDay.date) !== toString(action.payload.date))];
 		default:
 			return state;
 	}
