@@ -1,5 +1,5 @@
 const isprimeNuber= (number)=>{
-	number > 7 ? higherNumber(number): smallerNumber(number)
+	return number > 7 ? higherNumber(number): smallerNumber(number)
 };
 const higherNumber=(number)=>{
 	const bal= (number %2!==0 && number %5 !== 0 && number %3!==0 && number %7!==0)? "is a prime" : "not a prime";
