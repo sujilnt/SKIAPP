@@ -1,17 +1,36 @@
-import storeFactory from "./store/storeFactory";
-import {storeAndActiontestCase} from "./app.test";
+import C from './constants';
+import React from 'react';
+import { render } from 'react-dom';
+import routes from './routes.js';
+import sampleData from './initialState.json';
+import storeFactory from './store/storeFactory';
+import { Provider } from 'react-redux';
+import { addError } from './store/actions';
 
+const initialState = (localStorage["redux-store"]) ?
+    JSON.parse(localStorage["redux-store"]) :
+    sampleData
 
-const intialState= (localStorage['redux-store']) ?
-    JSON.parse(localStorage['redux-store']):
-    {};
+const saveState = () =>
+    localStorage["redux-store"] = JSON.stringify(store.getState())
 
-const saveState = () => {
-  const state = JSON.stringify(store.getState());
-  localStorage['redux-store']=state;
-};
-const store = storeFactory(intialState);
-store.subscribe=(saveState);
+const handleError = error => {
+  store.dispatch(
+      addError(error.message)
+  )
+}
 
-const testCases = storeAndActiontestCase(store);
+const store = storeFactory(initialState)
+store.subscribe(saveState)
 
+window.React = React
+window.store = store
+
+window.addEventListener("error", handleError)
+
+render(
+<Provider store={store}>
+    {routes}
+    </Provider>,
+document.getElementById('react-container')
+)

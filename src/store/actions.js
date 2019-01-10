@@ -51,8 +51,4 @@ export const clearSuggestions= (suggestions)=>{
 	}
 };
 
-export const randomGoals=()=>(dispatcher,state)=>{
-	dispatcher({
-	
-	})
-};
+
